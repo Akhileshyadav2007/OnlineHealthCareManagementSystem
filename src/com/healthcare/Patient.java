@@ -1,18 +1,31 @@
 package com.healthcare;
 
 public class Patient extends Person {
-    String disease;
 
-    public Patient(String name, int age, String disease) {
-        super(name, age); 
+    private String disease;
+
+    public Patient(int id, String name, int age, String phone, String disease) {
+        super(id, name, age, phone);
         this.disease = disease;
     }
 
+    public String getDisease() {
+        return disease;
+    }
+
     @Override
-    public void displayDetails() {
-        System.out.println("Patient Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Disease: " + disease);
+    public String getDetails() {
+        return "Patient -> ID: " + id +
+                ", Name: " + name +
+                ", Age: " + age +
+                ", Phone: " + phone +
+                ", Disease: " + disease;
+    }
+
+    @Override
+    public String toString() {
+        return getDetails();
     }
 }
+
 

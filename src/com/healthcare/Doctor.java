@@ -1,19 +1,34 @@
 package com.healthcare;
 
-public class Doctor extends Person {
+public class Doctor extends Person implements Bookable {
 
-    String specialization;
+    private String specialization;
 
-    public Doctor(String name, String specialization) {
-        super(name, 0); 
+    public Doctor(int id, String name, int age, String phone, String specialization) {
+        super(id, name, age, phone);
         this.specialization = specialization;
     }
 
+    public String getSpecialization() {
+        return specialization;
+    }
+
     @Override
-    public void displayDetails() {
-        System.out.println("Doctor Name: " + name);
-        System.out.println("Specialization: " + specialization);
+    public boolean isAvailable() {
+        return true; // For now doctor is always available
+    }
+
+    @Override
+    public String getDetails() {
+        return "Doctor -> ID: " + id +
+                ", Name: " + name +
+                ", Age: " + age +
+                ", Phone: " + phone +
+                ", Specialization: " + specialization;
+    }
+
+    @Override
+    public String toString() {
+        return getDetails();
     }
 }
-
-
